@@ -2,7 +2,9 @@
 import React from "react";
 import { Image, StyleSheet, Dimensions, Text, View} from "react-native";
 
-import topo from '../../assets/topo.png'
+import topo from '../../assets/topo.png';
+import logo from '../../assets/logo.png';
+
 
 const width = Dimensions.get('screen').width;
 
@@ -14,7 +16,12 @@ export default function Cestas(){
 
             <View style={estilos.corpo}>
                 <Text style={estilos.nome }>Cesta de Verduras</Text>
-                <Text style={estilos.nomefazenda}>Fazenda Cachorro  Bravo</Text>
+
+                <View style={estilos.fazenda} >
+                    <Image source={logo} style={estilos.imagemFazenda}/>
+                    <Text style={estilos.nomefazenda}>Fazenda Cachorro  Bravo</Text>
+                </View>
+                
                 <Text style={estilos.descricao}>Uma cesta de produtos selecionados cuidadosamente da fazenda diretamente para a sua cozinha</Text>
                 <Text style={estilos.preco}>40,00</Text>
             </View>
@@ -49,12 +56,24 @@ export default function Cestas(){
             color: "#464646",
             fontSize: 26,
             lineHeight: 42,
+            fontFamily: "montBold",
         },
 
+        fazenda:{
+            flexDirection: "row",
+            paddingVertical: 12,
+        },
+
+        imagemFazenda:{
+            height: 32,
+            width: 32,
+        },
 
         nomefazenda:{
             fontSize: 16,
-            lineHeight: 16,
+            lineHeight: 26,
+            marginLeft: 12,
+            fontFamily: "montNormal",
         },
         
         descricao:{
@@ -70,11 +89,6 @@ export default function Cestas(){
             lineHeight: 42,
             marginTop: 8
         }
-
-        
-
-
-
     });
 
     //11:41
