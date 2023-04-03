@@ -1,15 +1,18 @@
 import React from 'react';
-import { StatusBar , SafeAreaView, View } from 'react-native';
+import { StatusBar , SafeAreaView } from 'react-native';
+
 import { useFonts,
 Montserrat_400Regular,
 Montserrat_700Bold,
 Montserrat_400Regular_Italic
  } from '@expo-google-fonts/montserrat';
 
-import Cestas from './src/telas/cestas';
+ import AppLoading from 'expo-app-loading';
+
+import Cestas from './src/telas/Cesta';
+import mock from './src/mocks/cestas';
 
 export default function App() {
-
   const [fonteCarregada] =useFonts ({
     "montNormal": Montserrat_400Regular,
     "montBold": Montserrat_700Bold,
@@ -17,16 +20,17 @@ export default function App() {
   })
 
   if(!fonteCarregada){
-    return <View/>
+    return <AppLoading/>
   }
-
-
 
   return (
     <SafeAreaView >
       <StatusBar />
-      < Cestas />
+      < Cestas {...mock} /> 
     </SafeAreaView>
   );
 }
+
+// o uso do {...mock} e as msm coisa de declarar topo = {mock.topo}  desc={mosck.desc} facilitando a vida o nome é destruction
+
 
