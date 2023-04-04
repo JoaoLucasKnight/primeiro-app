@@ -2,7 +2,7 @@
 import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
 
-import Te
+import Texto from "../../componentes/texto";
 
 import Topo from './comp/topo';
 import Desc from './comp/desc';

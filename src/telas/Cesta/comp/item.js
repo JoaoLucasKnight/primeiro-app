@@ -1,33 +1,19 @@
 import React from "react";
-import { Image, View, StyleSheet } from "react-native";
+import { Image, View, StyleSheet, } from "react-native";
+
 import Texto from "../../../componentes/texto";
 
-export default function Itens( {titulo, lista} ){
-    return<>
-        <Texto style={estilos.titulo} > {titulo} </Texto> 
-            {lista.map (({nome, imagem}) =>{
-                return <View style={estilos.div} key={nome}>
-                            <Image source={imagem}/>
-                            <Texto> { nome } </Texto> 
-                        </View>
-            })}
-    </>
-};
+
+export default function Item({ item: { nome, imagem } }) {
+    return <View style={estilos.item}>
+      <Image source={imagem} style={estilos.imagem}/>
+      <Texto style={estilos.nome}>{ nome }</Texto>
+    </View>
+  }
 
 
 const estilos = StyleSheet.create({
-
-    
-    titulo:{
-        color: "#464646",
-        fontWeight: "bold",
-        marginTop: 32,
-        marginBottom: 8,
-        fontSize: 20,
-        lineHeight: 32,
-    },
-
-    div: {
+    item: {
         flexDirection: "row",
         borderBottomWidth: 1,
         borderBottomColor: "#ECECEC",
@@ -48,13 +34,3 @@ const estilos = StyleSheet.create({
 
 });
 
-
-/* 
-Feito desta forma, mas este carregada todos os itens de uma vez com o flat apenas carrega aoenas os itens que aparece na tela ajudando a otimizar o apk 
-
-{lista.map (({nome, imagem}) =>{
-    return <View style={estilos.div} key={nome}>
-                <Image source={imagem}/>
-                <Texto> { nome } </Texto> 
-            </View>
-})} */
