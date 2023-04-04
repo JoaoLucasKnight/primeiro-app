@@ -37,6 +37,7 @@ const estilos = StyleSheet.create({
     imagemFazenda:{
         height: 32,
         width: 32,
+        borderRadius: 8,
     },
     nomefazenda:{
         fontSize: 16,
